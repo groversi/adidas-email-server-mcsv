@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "adidas-email-server-mcsv"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "adidas-email-server-mcsv"
+  template:
+    metadata:
+      labels:
+        app: "adidas-email-server-mcsv"
+    spec:
+      containers:
+        - name: "adidas-email-server-mcsv"
+          image: "<YourContainerRegister>.azurecr.io/adidas-subscription-manager-mcsv"
+          ports:
+            - containerPort: 8080
